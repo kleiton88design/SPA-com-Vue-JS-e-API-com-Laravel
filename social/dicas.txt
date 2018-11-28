@@ -1,0 +1,54 @@
+Criar a pasta Vendor do Código Fonte do webservice:
+Rodar comando dentro do diretório webservice
+composer update
+
+
+Api com Laravel:
+
+instalar o Laravel
+composer create-project --prefer-dist laravel/laravel webservice "5.6.*"
+
+composer require laravel/passport "4.0"
+
+configurar o banco de dados ...
+
+php artisan migrate
+
+php artisan passport:install
+
+colocar no User:
+use Laravel\Passport\HasApiTokens;
+use HasApiTokens, Notifiable;
+
+e o config/auth
+
+'api' => [
+    'driver' => 'passport',
+    'provider' => 'users',
+],
+
+pronto...
+
+==> Rodar o servidor local do php:
+==> php artisan serve
+
+criar rotas de cadastro e de login e depois testar o acesso com token
+
+Baixar o Postman:
+
+https://www.getpostman.com/
+
+
+----------
+Axios:
+npm install axios --save
+
+import axios from 'axios';
+
+axios.post(`http://jsonplaceholder.typicode.com/posts`, {
+      body: this.postBody
+    })
+    .then(response => {})
+    .catch(e => {
+      this.errors.push(e)
+    })
